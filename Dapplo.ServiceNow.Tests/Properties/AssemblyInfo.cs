@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Dapplo.ServiceNow")]
+[assembly: AssemblyTitle("Dapplo.ServiceNow.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dapplo")]
-[assembly: AssemblyProduct("Dapplo.ServiceNow")]
+[assembly: AssemblyProduct("Dapplo.ServiceNow.Tests")]
 [assembly: AssemblyCopyright("Copyright © Dapplo 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2dcf4d44-6558-4933-8601-3bb5db54111a")]
+[assembly: Guid("ac0b2030-3286-40cb-8749-2fa46569559c")]
 
 // Version information for an assembly consists of the following four values:
 //

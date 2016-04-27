@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapplo.ServiceNow", "Dapplo.ServiceNow\Dapplo.ServiceNow.csproj", "{2DCF4D44-6558-4933-8601-3BB5DB54111A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dapplo.ServiceNow.Tests", "Dapplo.ServiceNow.Tests\Dapplo.ServiceNow.Tests.csproj", "{AC0B2030-3286-40CB-8749-2FA46569559C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2DCF4D44-6558-4933-8601-3BB5DB54111A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DCF4D44-6558-4933-8601-3BB5DB54111A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DCF4D44-6558-4933-8601-3BB5DB54111A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC0B2030-3286-40CB-8749-2FA46569559C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC0B2030-3286-40CB-8749-2FA46569559C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC0B2030-3286-40CB-8749-2FA46569559C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC0B2030-3286-40CB-8749-2FA46569559C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
