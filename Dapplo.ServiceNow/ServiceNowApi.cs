@@ -1,14 +1,18 @@
 ﻿using Dapplo.HttpExtensions;
 using Dapplo.ServiceNow.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Dapplo.ServiceNow
 {
+	/// <summary>
+	/// A ServiceNow client
+	/// Might need to switch to <a href="http://wiki.servicenow.com/index.php?title=Generating_OAuth_Tokens#gsc.tab=0">OAuth</a>
+	/// Although there is not much improvement if the API still needs the username and password!
+	/// http://stackoverflow.com/questions/31137312/servicenow-oauth2-0-authorization-url-and-token-url
+	/// http://stackoverflow.com/questions/35643629/how-to-get-clientid-and-clientsecret-for-oauth-2-0-authentication-in-servicenow
+	/// </summary>
 	public class ServiceNowApi
 	{
 		/// <summary>
@@ -70,7 +74,7 @@ namespace Dapplo.ServiceNow
 		/// <param name="incidentId"></param>
 		/// <param name="token"></param>
 		/// <returns>dynamic</returns>
-		public async Task<string> GetIncident(string incidentId, CancellationToken token = default(CancellationToken))
+		public async Task<string> GetIncidentAsync(string incidentId, CancellationToken token = default(CancellationToken))
 		{
 			// Only use if available
 			_behaviour?.MakeCurrent();
@@ -89,5 +93,26 @@ namespace Dapplo.ServiceNow
 			}
 			return response.Response;
 		}
+
+		/// <summary>
+		/// See: http://www.john-james-andersen.com/blog/service-now/generate-attachments-in-servicenow-via-rest.html
+		/// Or: https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/integrate/inbound_rest/concept/c_AttachmentAPI.html
+		/// Especially here: https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/integrate/inbound_rest/reference/r_AttachmentAPI-POST.html
+		/// </summary>
+		/// <returns></returns>
+		public async Task AttachAsync()
+		{
+			await Task.Delay(10);
+		}
+
+		/// <summary>
+		/// See: https://service-now.com/api/now/table/sys_user?sysparm_query=user_name=username
+		/// </summary>
+		/// <returns></returns>
+		public async Task GetUserAsync(string username, CancellationToken token = default(CancellationToken))
+		{
+			await Task.Delay(10);
+		}
+
 	}
 }

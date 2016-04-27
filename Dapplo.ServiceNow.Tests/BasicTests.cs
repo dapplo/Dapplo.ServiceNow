@@ -22,21 +22,10 @@ namespace Dapplo.ServiceNow.Tests
 		}
 
 		[Fact]
-		public async Task GetIncidentAsync()
+		public async Task TestGetIncidentAsync()
 		{
-			var incident = await _serviceNowApi.GetIncident("INC0014709");
+			var incident = await _serviceNowApi.GetIncidentAsync("INC0014709");
 			Assert.NotNull(incident);
-		}
-
-		/// <summary>
-		/// See: http://www.john-james-andersen.com/blog/service-now/generate-attachments-in-servicenow-via-rest.html
-		/// Or: https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/integrate/inbound_rest/concept/c_AttachmentAPI.html
-		/// Especially here: https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/integrate/inbound_rest/reference/r_AttachmentAPI-POST.html
-		/// </summary>
-		/// <returns></returns>
-		public async Task AttachAsync()
-		{
-
 		}
 	}
 }
