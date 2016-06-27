@@ -1,6 +1,6 @@
-﻿using Dapplo.LogFacade;
-using Dapplo.ServiceNow.Tests.Logger;
+﻿using Dapplo.Log.Facade;
 using System.Threading.Tasks;
+using Dapplo.Log.XUnit;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -8,10 +8,10 @@ namespace Dapplo.ServiceNow.Tests
 {
 	public class BasicTests
 	{
-		private ServiceNowApi _serviceNowApi;
+		private readonly ServiceNowApi _serviceNowApi;
 		public BasicTests(ITestOutputHelper testOutputHelper)
 		{
-			XUnitLogger.RegisterLogger(testOutputHelper, LogLevel.Verbose);
+			LogSettings.RegisterDefaultLogger<XUnitLogger>(LogLevels.Verbose, testOutputHelper);
 			_serviceNowApi = new ServiceNowApi(new System.Uri("https://demo006.service-now.com"));
 			var username = "itil";
 			var password = "itil";
