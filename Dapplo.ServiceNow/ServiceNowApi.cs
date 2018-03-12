@@ -55,6 +55,8 @@ namespace Dapplo.ServiceNow
 
 		private string _user;
 
+		private string _userToken;
+
 		/// <summary>
 		///     Create the ServiceNowApi object, here the HttpClient is configured
 		/// </summary>
@@ -67,8 +69,7 @@ namespace Dapplo.ServiceNow
 				throw new ArgumentNullException(nameof(baseUri));
 			}
 			BaseUri = baseUri.AppendSegments("api", "now");
-
-			_behaviour = new HttpBehaviour
+            _behaviour = new HttpBehaviour
 			{
 				HttpSettings = httpSettings ?? HttpExtensionsGlobals.HttpSettings,
 				OnHttpRequestMessageCreated = httpMessage =>
@@ -76,6 +77,10 @@ namespace Dapplo.ServiceNow
 					if (!string.IsNullOrEmpty(_user) && _password != null)
 					{
 						httpMessage?.SetBasicAuthorization(_user, _password);
+					}
+					if (!string.IsNullOrEmpty(_userToken))
+					{
+						httpMessage?.AddRequestHeader("X-UserToken", _userToken);
 					}
 					return httpMessage;
 				}
@@ -98,13 +103,18 @@ namespace Dapplo.ServiceNow
 			_password = password;
 		}
 
+		public void SetUserToken(string userToken)
+		{
+			_userToken = userToken;
+		}
+
 		/// <summary>
 		///     Get details for an incident
 		/// </summary>
 		/// <param name="incidentId"></param>
 		/// <param name="token"></param>
 		/// <returns>dynamic</returns>
-		public async Task<string> GetIncidentAsync(string incidentId, CancellationToken token = default(CancellationToken))
+		public async Task<string> GetIncidentAsync(string incidentId, CancellationToken token = default)
 		{
 			// Only use if available
 			_behaviour?.MakeCurrent();
@@ -141,7 +151,7 @@ namespace Dapplo.ServiceNow
 		///     See: https://service-now.com/api/now/table/sys_user?sysparm_query=user_name=username
 		/// </summary>
 		/// <returns></returns>
-		public async Task GetUserAsync(string username, CancellationToken token = default(CancellationToken))
+		public async Task GetUserAsync(string username, CancellationToken token = default)
 		{
 			await Task.Delay(10);
 		}
